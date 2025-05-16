@@ -1,8 +1,8 @@
-<div class="container mx-auto px-4 py-8 max-w-5xl">
+<div class="container mx-auto px-4 py-8 max-w-5xl font-sans">
   <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">Products</h1>
   
   <% if products.any? %>
-    <div class="overflow-x-auto bg-white rounded-lg shadow-lg border border-gray-200">
+    <div class="overflow-x-auto bg-white rounded-lg shadow-lg border border-gray-200 mx-auto">
       <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-blue-50">
           <tr>
@@ -34,7 +34,7 @@
     </div>
   <% else %>
     <div class="text-center py-8 bg-white rounded-lg shadow-lg max-w-2xl mx-auto border border-gray-200">
-      <p class="text-gray-500 text-lg">No products available.</p>
+      <p class="text-gray-500 text-lg font-sans">No products available.</p>
     </div>
   <% end %>
 </div>
