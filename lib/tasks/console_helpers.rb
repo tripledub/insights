@@ -59,13 +59,23 @@ end
 # Show product details
 def product_details(product)
   puts "Product: #{product.name}"
-  puts "Price: $#{product.price}"
+  puts "Price: $#{product.price} (#{(product.price * 100).to_i} cents)"
   puts "Stock count: #{product.stock_count}"
   puts "Pending purchases: #{product.pending_purchase_count}"
   puts "Completed purchases: #{product.purchase_count}"
   puts "Available stock: #{product.available_stock}"
 
   nil
+end
+
+# Convert cents to dollars for display
+def cents_to_dollars(cents)
+  (cents.to_f / 100).round(2)
+end
+
+# Convert dollars to cents for storage
+def dollars_to_cents(dollars)
+  (dollars.to_f * 100).round
 end
 
 puts "Console helpers loaded!"
