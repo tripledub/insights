@@ -12,11 +12,14 @@ def create_test_order(product_count: 3)
   # Add products to the order
   products.each do |product|
     quantity = rand(1..3)
-    order_product = OrderProduct.create!(
+    order_product = OrderProduct.new(
       order: order,
       product: product,
       quantity: quantity
     )
+    # Explicitly set the price from the product
+    order_product.price_at_order = product.price
+    order_product.save!
     # Ensure the order product is saved and associated with the order
     order.order_products.reload
   end
