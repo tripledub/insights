@@ -28,6 +28,7 @@ git clone [repository-url]
 
 # Install dependencies
 bundle install
+npm install
 
 # Setup database
 bin/rails db:setup
