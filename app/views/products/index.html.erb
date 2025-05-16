@@ -1,10 +1,10 @@
-<div class="container mx-auto px-4 py-8">
-  <h1 class="text-3xl font-bold mb-6">Products</h1>
+<div class="container mx-auto px-4 py-8 max-w-5xl">
+  <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">Products</h1>
   
   <% if products.any? %>
-    <div class="overflow-x-auto bg-white rounded-lg shadow">
+    <div class="overflow-x-auto bg-white rounded-lg shadow-lg border border-gray-200">
       <table class="min-w-full divide-y divide-gray-200">
-        <thead class="bg-gray-50">
+        <thead class="bg-blue-50">
           <tr>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
@@ -22,7 +22,7 @@
                 <div class="text-sm text-gray-500 truncate max-w-xs"><%= product.description %></div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm font-medium text-green-600">$<%= product.price %></div>
+                <div class="text-sm font-medium text-green-600 font-bold">$<%= product.price %></div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class="text-sm text-gray-500"><%= product.available_stock %></div>
@@ -33,7 +33,7 @@
       </table>
     </div>
   <% else %>
-    <div class="text-center py-8 bg-white rounded-lg shadow">
+    <div class="text-center py-8 bg-white rounded-lg shadow-lg max-w-2xl mx-auto border border-gray-200">
       <p class="text-gray-500 text-lg">No products available.</p>
     </div>
   <% end %>
