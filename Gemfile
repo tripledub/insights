@@ -61,3 +61,4 @@ end
 gem "rspec-rails", "~> 8.0", groups: [ :development, :test ]
 gem "shoulda-matchers", "~> 5.0", groups: [ :development, :test ]
 gem "faker", "~> 3.2"
+gem "decent_exposure", "~> 3.0"
