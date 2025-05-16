@@ -1,2 +1,27 @@
 #!/usr/bin/env ruby
-exec "./bin/rails", "server", *ARGV
+require "fileutils"
+
+# Ensure Procfile.dev exists
+unless File.exist?("Procfile.dev")
+  FileUtils.touch("Procfile.dev")
+  File.write("Procfile.dev", <<~PROCFILE)
+    web: bin/rails server -p 3000
+    css: bin/rails tailwindcss:watch
+    js: yarn build --watch
+  PROCFILE
+end
+
+# Start the application using foreman
+ENV["RAILS_ENV"] ||= "development"
+
+cmd = if system("command -v foreman >/dev/null 2>&1")
+  "foreman start -f Procfile.dev"
+elsif system("command -v overmind >/dev/null 2>&1")
+  "overmind start -f Procfile.dev"
+else
+  # If neither foreman nor overmind is available, install foreman
+  system("gem install foreman")
+  "foreman start -f Procfile.dev"
+end
+
+exec cmd
