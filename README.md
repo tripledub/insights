@@ -1,24 +1,47 @@
-# README
+# Product Insights AI
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is an experiment into AI, using a self-hosted Large Language Model (LLM) to get insights into product data.
 
-Things you may want to cover:
+## Overview
 
-* Ruby version
+The application analyzes product data, orders, and customer behavior to provide valuable insights through a self-hosted LLM. This approach allows for data privacy while leveraging the power of AI for business intelligence.
 
-* System dependencies
+## Features
 
-* Configuration
+* AI-powered analysis of product performance
+* Self-hosted LLM for data privacy and security
+* Integration with product and order management systems
 
-* Database creation
+## Technical Details
 
-* Database initialization
+### Requirements
 
-* How to run the test suite
+* Ruby version: 3.4.1
+* Rails 8.0
+* Database: PostgreSQL
 
-* Services (job queues, cache servers, search engines, etc.)
+### Setup
 
-* Deployment instructions
+```bash
+# Clone the repository
+git clone [repository-url]
 
-* ...
+# Install dependencies
+bundle install
+
+# Setup database
+bin/rails db:setup
+
+# Start the server
+bin/dev
+```
+
+### Testing
+
+```bash
+bin/rspec
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
