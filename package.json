@@ -2,7 +2,9 @@
   "name": "insights",
   "private": true,
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build": "echo 'Asset build process running...'",
+    "build:watch": "echo 'Watching for asset changes...' && sleep infinity"
   },
   "devDependencies": {
     "husky": "^8.0.3",
