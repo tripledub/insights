@@ -1,27 +1,16 @@
-#!/usr/bin/env ruby
-require "fileutils"
+#!/usr/bin/env sh
 
-# Ensure Procfile.dev exists
-unless File.exist?("Procfile.dev")
-  FileUtils.touch("Procfile.dev")
-  File.write("Procfile.dev", <<~PROCFILE)
-    web: bin/rails server -p 3000
-    css: bin/rails tailwindcss:watch
-    js: yarn build --watch
-  PROCFILE
-end
+if ! gem list foreman -i --silent; then
+  echo "Installing foreman..."
+  gem install foreman
+fi
 
-# Start the application using foreman
-ENV["RAILS_ENV"] ||= "development"
+# Default to port 3000 if not specified
+export PORT="${PORT:-3000}"
 
-cmd = if system("command -v foreman >/dev/null 2>&1")
-  "foreman start -f Procfile.dev"
-elsif system("command -v overmind >/dev/null 2>&1")
-  "overmind start -f Procfile.dev"
-else
-  # If neither foreman nor overmind is available, install foreman
-  system("gem install foreman")
-  "foreman start -f Procfile.dev"
-end
+# Let the debug gem allow remote connections,
+# but avoid loading until `debugger` is called
+export RUBY_DEBUG_OPEN="true"
+export RUBY_DEBUG_LAZY="true"
 
-exec cmd
+exec foreman start -f Procfile.dev "$@"

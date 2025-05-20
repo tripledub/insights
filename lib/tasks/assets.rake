@@ -10,14 +10,14 @@ namespace :assets do
         # Compile CSS separately to avoid cssbundling-rails errors
         system("yarn build:css")
         puts "CSS compiled at #{Time.now}"
-        
+
         # Compile other assets
         system("bin/rails assets:precompile SKIP_CSS=true")
         puts "Assets compiled at #{Time.now}"
       rescue => e
         puts "Error compiling assets: #{e.message}"
       end
-      
+
       # Wait for a while before checking again
       sleep 10
     end
