@@ -28,6 +28,7 @@ git clone [repository-url]
 
 # Install dependencies
 bundle install
+npm install
 
 # Setup database
 bin/rails db:setup
@@ -45,3 +46,4 @@ bin/rspec
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+ 

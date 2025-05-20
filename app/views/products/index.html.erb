@@ -1,0 +1,40 @@
+<div class="container mx-auto px-4 py-8 max-w-5xl font-sans">
+  <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">Product Catalog</h1>
+  
+  <% if products.any? %>
+    <div class="overflow-x-auto bg-white rounded-lg shadow-lg border border-gray-200 mx-auto">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-blue-50">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Available Stock</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+          <% products.each do |product| %>
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="font-medium text-gray-900"><%= product.name %></div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="text-sm text-gray-500 truncate max-w-xs"><%= product.description %></div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm font-medium text-green-600 font-bold">$<%= product.price %></div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-gray-500"><%= product.available_stock %></div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <div class="text-center py-8 bg-white rounded-lg shadow-lg max-w-2xl mx-auto border border-gray-200">
+      <p class="text-gray-500 text-lg font-sans">No products available.</p>
+    </div>
+  <% end %>
+</div>
